@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Welcome to MomsRising — Getting Started</title>
+<style>
+  :root{
+    --blue:#0058FF;
+    --navy:#00236D;
+    --red:#F44840;
+    --green:#21A96D;
+    --yellow:#FFCF00;
+    --sky:#B8D7FD;
+    --cream:#F4EEE4;
+    --ink:#1a1a1a;
+    --gray:#757575;
+    --line:#e7e9ef;
+    --card:#ffffff;
+    --bg:#f5f7fb;
+    --radius:16px;
+    --shadow:0 1px 3px rgba(0,35,109,.06), 0 8px 24px rgba(0,35,109,.07);
+    font-size:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue);}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+    color:#fff;
+    padding:48px 20px 56px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header .logo{
+    width:72px;height:72px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 20px;
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+  }
+  header .logo svg{width:54px;height:54px;}
+  header .logo svg path{fill:var(--blue);}
+  header .eyebrow{
+    text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;
+    font-weight:700;opacity:.85;margin:0 auto 8px; /* auto keeps it centered; without it the inherited max-width pins it left */
+  }
+  header h1{
+    margin:0 0 12px;font-size:2.1rem;line-height:1.2;font-weight:800;
+  }
+  header p{
+    margin:0 auto;max-width:560px;font-size:1.08rem;opacity:.95;
+  }
+  .wave{display:block;width:100%;height:40px;margin-bottom:-7px;}
+
+  /* ---------- Progress bar ---------- */
+  .progress-wrap{
+    position:sticky;top:0;z-index:20;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:10px 20px;
+  }
+  .progress-inner{max-width:760px;margin:0 auto;display:flex;align-items:center;gap:14px;}
+  .progress-track{flex:1;height:10px;background:#e3e8f3;border-radius:999px;overflow:hidden;}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));border-radius:999px;transition:width .4s ease;}
+  .progress-label{font-size:.85rem;font-weight:700;color:var(--navy);white-space:nowrap;}
+
+  /* ---------- Layout ---------- */
+  main{max-width:760px;margin:0 auto;padding:32px 20px 80px;}
+  .intro-card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:24px 26px;margin-bottom:28px;border-left:6px solid var(--yellow);
+  }
+  .intro-card h2{margin:0 0 8px;font-size:1.15rem;color:var(--navy);}
+  .intro-card p{margin:0 0 10px;color:#333;}
+  .intro-card p:last-child{margin-bottom:0;}
+
+  /* ---------- Step cards ---------- */
+  .step{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    margin-bottom:22px;overflow:hidden;border:1px solid var(--line);
+    transition:opacity .3s ease;
+  }
+  .step.done{opacity:.72;}
+  .step-head{
+    display:flex;align-items:flex-start;gap:16px;padding:22px 24px;
+  }
+  .step-num{
+    flex:none;width:44px;height:44px;border-radius:50%;
+    background:var(--blue);color:#fff;font-weight:800;font-size:1.15rem;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 3px 8px rgba(0,88,255,.3);
+  }
+  .step.s0 .step-num{background:var(--navy);}
+  .step.s1 .step-num{background:var(--blue);}
+  .step.s2 .step-num{background:var(--red);}
+  .step.s3 .step-num{background:var(--green);}
+  .step.s4 .step-num{background:#7a4fd6;}
+  .step.s5 .step-num{background:#0d8a9e;}
+  .step-title{flex:1;}
+  .step-title h3{margin:0;font-size:1.22rem;color:var(--ink);line-height:1.25;}
+  .step-title .sub{margin:4px 0 0;font-size:.92rem;color:var(--gray);}
+  .step-body{padding:0 24px 24px 24px;}
+
+  .estimate{
+    display:inline-block;font-size:.74rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.05em;color:var(--blue);background:#eaf1ff;
+    padding:3px 10px;border-radius:999px;margin-top:8px;
+  }
+
+  ol.tasks{list-style:none;margin:8px 0 0;padding:0;}
+  ol.tasks li{
+    display:flex;align-items:flex-start;gap:12px;padding:11px 0;
+    border-top:1px dashed var(--line);
+  }
+  ol.tasks li:first-child{border-top:none;}
+  ol.tasks .check{
+    flex:none;width:24px;height:24px;border:2px solid #c5ccdb;border-radius:7px;
+    margin-top:2px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    background:#fff;transition:all .15s ease;
+  }
+  ol.tasks .check:hover{border-color:var(--blue);}
+  ol.tasks .check.checked{background:var(--green);border-color:var(--green);}
+  ol.tasks .check svg{width:14px;height:14px;opacity:0;transition:opacity .15s;}
+  ol.tasks .check.checked svg{opacity:1;}
+  ol.tasks .txt{flex:1;}
+  ol.tasks .txt.struck{text-decoration:line-through;color:var(--gray);}
+  ol.tasks .txt strong{color:var(--navy);}
+
+  .callout{
+    margin:16px 0 0;padding:14px 16px;border-radius:12px;font-size:.95rem;
+    display:flex;gap:12px;align-items:flex-start;
+  }
+  .callout .ico{flex:none;font-size:1.15rem;line-height:1.4;}
+  .callout.tip{background:#eafaf2;border:1px solid #c4ecd6;}
+  .callout.see{background:#fff8e0;border:1px solid #f3e3a8;}
+  .callout.wait{background:#eaf1ff;border:1px solid #cfdeff;}
+  .callout strong{color:var(--navy);}
+
+  .media-ph{
+    margin:16px 0 0;border:2px dashed #b9c2d6;border-radius:12px;
+    background:#f1f4fb;color:var(--gray);text-align:center;
+    padding:30px 18px;font-size:.95rem;
+  }
+  .media-ph .big{font-size:1.6rem;display:block;margin-bottom:6px;}
+
+  /* ---------- Help / footer ---------- */
+  .help{
+    background:var(--navy);color:#fff;border-radius:var(--radius);
+    padding:28px 26px;margin-top:36px;text-align:center;
+  }
+  .help h2{margin:0 0 8px;font-size:1.35rem;}
+  .help p{margin:0 auto 4px;max-width:520px;opacity:.92;}
+  .help .contact{
+    display:inline-block;margin-top:16px;background:#fff;color:var(--navy);
+    font-weight:700;padding:12px 22px;border-radius:999px;text-decoration:none;
+  }
+  .ph{
+    background:#fff4cc;color:#7a5b00;font-weight:700;padding:1px 7px;border-radius:6px;
+    font-size:.9em;border:1px dashed #d9b85b;
+  }
+  .help .ph{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4);}
+
+  .done-banner{
+    display:none;background:linear-gradient(135deg,var(--green),#16c47f);color:#fff;
+    border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:24px;
+    font-size:1.1rem;font-weight:700;box-shadow:var(--shadow);
+  }
+  .done-banner.show{display:block;}
+
+  footer{text-align:center;color:var(--gray);font-size:.82rem;padding:24px 20px 48px;}
+  .reset{background:none;border:none;color:var(--gray);text-decoration:underline;cursor:pointer;font-size:.82rem;}
+
+  @media(max-width:600px){
+    header h1{font-size:1.7rem;}
+    .step-head{padding:18px 16px;}
+    .step-body{padding:0 16px 18px;}
+    .step-title h3{font-size:1.1rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <svg viewBox="0 0 133.8 133.8" xmlns="http://www.w3.org/2000/svg">
+      <path d="M65.2,13.7c-29.2,0-53,23.8-53,53c0,29.2,23.8,53,53,53c29.2,0,53-23.8,53-53C118.1,37.4,94.4,13.7,65.2,13.7z M65.2,117.7c-28.2,0-51.1-22.9-51.1-51.1c0-28.2,22.9-51.1,51.1-51.1c28.2,0,51.1,22.9,51.1,51.1C116.3,94.8,93.4,117.7,65.2,117.7z"/>
+      <path d="M85.7,62.1l-20.4,50.6c13.4,0,25.5-5.8,33.9-15L85.7,62.1z"/>
+      <path d="M19,66.6c0,5.2,0.9,10.3,2.5,14.9l16.2-52C26.4,38,19,51.5,19,66.6z"/>
+      <path d="M64.9,112.8L45.4,62.1L32,98.7C40.4,107.3,52,112.7,64.9,112.8z"/>
+      <path d="M84.3,24.6C78.5,22,72,20.5,65.2,20.5c-6.5,0-12.7,1.4-18.4,3.8l18.5,49.2L84.3,24.6z"/>
+      <path d="M111.3,66.6c0-14.7-6.9-27.8-17.7-36.3l15.7,49.5C110.7,75.6,111.3,71.2,111.3,66.6z"/>
+    </svg>
+  </div>
+  <p class="eyebrow">Welcome to the team</p>
+  <h1>Let&rsquo;s get you set up at MomsRising</h1>
+  <p>This is your step-by-step guide to getting your new Mac and your core tools ready to go. Take it one step at a time &mdash; there&rsquo;s nothing here you can break.</p>
+</header>
+<svg class="wave" viewBox="0 0 1440 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path fill="#f5f7fb" d="M0,20 C240,40 480,0 720,12 C960,24 1200,40 1440,18 L1440,40 L0,40 Z"></path></svg>
+
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-label" id="pct">0% complete</span>
+    <div class="progress-track"><div class="progress-fill" id="fill"></div></div>
+    <span class="progress-label" id="count">0 / 0</span>
+  </div>
+</div>
+
+<main>
+
+  <div class="done-banner" id="doneBanner">🎉 You did it! Everything&rsquo;s set up. Welcome aboard &mdash; we&rsquo;re so glad you&rsquo;re here.</div>
+
+  <div class="intro-card">
+    <h2>Before you begin</h2>
+    <p>Your work laptop is shipping <strong>directly from Apple</strong>. When the box arrives, you don&rsquo;t need to install anything by hand &mdash; the Mac already knows it belongs to MomsRising and will set itself up for you.</p>
+    <p>Separately, you&rsquo;ll get an <strong>email from us</strong> with your new MomsRising login details. Keep that email handy &mdash; you&rsquo;ll need it in Step 2.</p>
+    <p>Work through the steps below in order. Tap the circle next to each item as you finish it, and your progress is saved automatically on this device.</p>
+  </div>
+
+  <!-- STEP 0 -->
+  <section class="step s0" id="step0">
+    <div class="step-head">
+      <div class="step-num">1</div>
+      <div class="step-title">
+        <h3>Turn on your new Mac</h3>
+        <p class="sub">It sets itself up automatically &mdash; just follow the prompts.</p>
+        <span class="estimate">Hands-on: a few minutes, then it works on its own</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol class="tasks" data-step="0">
+        <li><span class="check"></span><span class="txt">Unbox the Mac, plug in the power adapter, and press the power button.</span></li>
+        <li><span class="check"></span><span class="txt"><strong>Connect to your Wi-Fi</strong> when asked. This part is important &mdash; the Mac needs internet to finish setting up.</span></li>
+        <li><span class="check"></span><span class="txt">When you see a screen that says something like <strong>&ldquo;Remote Management&rdquo;</strong> or <strong>&ldquo;MomsRising will automatically configure your Mac&rdquo;</strong>, that&rsquo;s expected &mdash; continue through it.</span></li>
+        <li><span class="check"></span><span class="txt">Create a <strong>password for the laptop itself</strong> when prompted, and write it down somewhere safe. (This is the password to unlock the computer &mdash; it&rsquo;s separate from your email password.)</span></li>
+        <li><span class="check"></span><span class="txt">Finish the setup screens until you reach the desktop.</span></li>
+      </ol>
+      <div class="callout wait"><span class="ico">⏳</span><span><strong>Then just wait a bit.</strong> Over the next several minutes your apps &mdash; Google Chrome, Slack, 1Password, and Zoom &mdash; will <strong>install themselves automatically</strong>. You&rsquo;ll see their icons appear in the dock at the bottom of the screen. Keep the Mac on and connected to Wi-Fi while this happens.</span></div>
+      <div class="callout tip"><span class="ico">✅</span><span>You don&rsquo;t need to download anything yourself. If an app isn&rsquo;t there yet, give it a little longer &mdash; they arrive over the internet.</span></div>
+    </div>
+  </section>
+
+  <!-- STEP 1 -->
+  <section class="step s1" id="step1">
+    <div class="step-head">
+      <div class="step-num">2</div>
+      <div class="step-title">
+        <h3>Sign in to Google &mdash; your home base</h3>
+        <p class="sub">Your MomsRising Google account unlocks everything else.</p>
+        <span class="estimate">About 5 minutes</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <p style="margin-top:0">Your email lives at <strong>@momsrising.org</strong>, powered by Google Workspace (Gmail, Calendar, Drive, and Docs). Setting this up first matters, because you&rsquo;ll use it to sign in to <em>all</em> your other tools.</p>
+      <ol class="tasks" data-step="1">
+        <li><span class="check"></span><span class="txt">Find the <strong>welcome email from us</strong> with your new <strong>@momsrising.org</strong> address and temporary password.</span></li>
+        <li><span class="check"></span><span class="txt">Open <strong>Google Chrome</strong> and go to <a href="https://accounts.google.com" target="_blank" rel="noopener">accounts.google.com</a>.</span></li>
+        <li><span class="check"></span><span class="txt">Sign in with your new email and the temporary password.</span></li>
+        <li><span class="check"></span><span class="txt"><strong>Create your own new password</strong> when prompted. Make it strong &mdash; you&rsquo;ll save it in 1Password in Step 4.</span></li>
+        <li><span class="check"></span><span class="txt">Add a <strong>phone number for account recovery</strong> if Google asks &mdash; this protects your account.</span></li>
+        <li><span class="check"></span><span class="txt"><strong>Make Chrome your default browser.</strong> Chrome will usually pop up a banner asking &mdash; click <strong>&ldquo;Set as default.&rdquo;</strong> (Or go to the Apple menu &rarr; <strong>System Settings &rarr; Desktop &amp; Dock</strong>, scroll down to <strong>Default web browser</strong>, and choose <strong>Google Chrome</strong>.)</span></li>
+        <li><span class="check"></span><span class="txt">Open <a href="https://mail.google.com" target="_blank" rel="noopener">Gmail</a> and confirm you can see your inbox. 🎉</span></li>
+      </ol>
+      <div class="callout wait"><span class="ico">🛡️</span><span><strong>If Google asks you to turn on 2-step verification right now, skip it for the moment.</strong> We&rsquo;ll set it up properly in <strong>Step 6</strong> using 1Password &mdash; it&rsquo;s easier once 1Password is ready.</span></div>
+      <div class="callout tip"><span class="ico">🌐</span><span>Setting Chrome as your default means links you click &mdash; including in Slack &mdash; open in Chrome where you&rsquo;re already signed in, instead of Safari.</span></div>
+      <div class="callout see"><span class="ico">👀</span><span><strong>What you&rsquo;ll see next:</strong> Your Slack and 1Password invites (Steps 3 and 4) will arrive <strong>in this inbox</strong>. So keep this tab open.</span></div>
+    </div>
+  </section>
+
+  <!-- STEP 2 -->
+  <section class="step s2" id="step2">
+    <div class="step-head">
+      <div class="step-num">3</div>
+      <div class="step-title">
+        <h3>Join Slack &mdash; where the team talks</h3>
+        <p class="sub">Sign in with your Google account in one click.</p>
+        <span class="estimate">About 3 minutes</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol class="tasks" data-step="2">
+        <li><span class="check"></span><span class="txt">In your <strong>@momsrising.org Gmail</strong>, find the <strong>Slack invitation</strong> email and click <strong>&ldquo;Join Now.&rdquo;</strong></span></li>
+        <li><span class="check"></span><span class="txt">When asked how to sign in, choose <strong>&ldquo;Continue with Google&rdquo;</strong> and pick your MomsRising account. (No new password needed!)</span></li>
+        <li><span class="check"></span><span class="txt">Open the <strong>Slack app</strong> (it installed itself in Step 1) and sign in there too, so you get messages on your desktop.</span></li>
+        <li><span class="check"></span><span class="txt">Add a <strong>profile photo</strong> and your name so the team knows who you are.</span></li>
+        <li><span class="check"></span><span class="txt">Say a quick hello in your team&rsquo;s welcome channel. 👋</span></li>
+      </ol>
+      <div class="callout tip"><span class="ico">💡</span><span>Slack is where day-to-day conversation happens &mdash; think of it like a friendly group text for work. It&rsquo;s the fastest way to reach someone.</span></div>
+    </div>
+  </section>
+
+  <!-- STEP 3 -->
+  <section class="step s3" id="step3">
+    <div class="step-head">
+      <div class="step-num">4</div>
+      <div class="step-title">
+        <h3>Set up 1Password &mdash; your password keeper</h3>
+        <p class="sub">One safe place for all your work logins.</p>
+        <span class="estimate">About 5 minutes</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol class="tasks" data-step="3">
+        <li><span class="check"></span><span class="txt">In your <strong>@momsrising.org Gmail</strong>, find the <strong>1Password invitation</strong> and click to accept it.</span></li>
+        <li><span class="check"></span><span class="txt">Create your <strong>account password</strong> (this one unlocks 1Password itself &mdash; make it memorable but strong).</span></li>
+        <li><span class="check"></span><span class="txt"><strong>Save your Emergency Kit / Secret Key.</strong> 1Password will show you a one-time setup code &mdash; download or print it and keep it somewhere safe. You cannot get back in without it.</span></li>
+        <li><span class="check"></span><span class="txt">Install the <strong>1Password extension for Chrome</strong> when prompted, so it can fill in passwords for you.</span></li>
+        <li><span class="check"></span><span class="txt">Save your new <strong>Google/email password</strong> into 1Password so you never have to remember it again.</span></li>
+      </ol>
+      <div class="callout tip"><span class="ico">🔐</span><span>From now on, let 1Password remember and fill in your work passwords. It&rsquo;s safer than reusing the same password &mdash; and a lot less to memorize.</span></div>
+    </div>
+  </section>
+
+  <!-- STEP 4 -->
+  <section class="step s4" id="step4">
+    <div class="step-head">
+      <div class="step-num">5</div>
+      <div class="step-title">
+        <h3>Sign in to Zoom &mdash; for video calls</h3>
+        <p class="sub">Sign in with Google &mdash; that&rsquo;s the only step.</p>
+        <span class="estimate">About 2 minutes</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol class="tasks" data-step="4">
+        <li><span class="check"></span><span class="txt">Open the <strong>Zoom app</strong> (it installed itself in Step 1).</span></li>
+        <li><span class="check"></span><span class="txt">On the sign-in screen, choose <strong>&ldquo;Sign in with Google&rdquo;</strong> &mdash; <em>not</em> email/password.</span></li>
+        <li><span class="check"></span><span class="txt">Pick your <strong>@momsrising.org</strong> account. You&rsquo;re in!</span></li>
+        <li><span class="check"></span><span class="txt">Click your photo &rarr; <strong>Settings</strong> and do a quick <strong>test of your microphone and camera</strong> so you&rsquo;re ready for your first meeting.</span></li>
+      </ol>
+      <div class="callout see"><span class="ico">📹</span><span><strong>Important:</strong> Always use <strong>&ldquo;Sign in with Google&rdquo;</strong> for Zoom. If you make a separate Zoom password by accident, you may not land in the MomsRising account.</span></div>
+    </div>
+  </section>
+
+  <!-- STEP 5 -->
+  <section class="step s5" id="step5">
+    <div class="step-head">
+      <div class="step-num">6</div>
+      <div class="step-title">
+        <h3>Add extra security &mdash; with 1Password doing the work</h3>
+        <p class="sub">Turn on 2-step verification and let 1Password fill the codes for you.</p>
+        <span class="estimate">About 5 minutes</span>
+      </div>
+    </div>
+    <div class="step-body">
+      <p style="margin-top:0"><strong>2-step verification</strong> means signing in takes your password <em>plus</em> a short code that changes every 30 seconds &mdash; so even if someone learned your password, they still couldn&rsquo;t get in. We&rsquo;ll store that code generator <strong>right inside 1Password</strong>, so it fills in automatically. No separate phone app needed.</p>
+      <ol class="tasks" data-step="5">
+        <li><span class="check"></span><span class="txt">In Chrome (signed in to your <strong>@momsrising.org</strong> account), go to <a href="https://myaccount.google.com/security" target="_blank" rel="noopener">myaccount.google.com/security</a>.</span></li>
+        <li><span class="check"></span><span class="txt">Click <strong>2-Step Verification</strong> and follow the prompts to turn it on. (Google may ask you to confirm with the recovery phone number from Step 2 &mdash; that&rsquo;s fine.)</span></li>
+        <li><span class="check"></span><span class="txt">When you reach the options, choose <strong>&ldquo;Authenticator&rdquo;</strong> (sometimes shown as <em>&ldquo;Set up authenticator&rdquo;</em> or <em>&ldquo;Authenticator app&rdquo;</em>). Google will display a <strong>QR code</strong> on screen.</span></li>
+        <li><span class="check"></span><span class="txt">Open <strong>1Password</strong>, find your MomsRising email login, and click <strong>Edit</strong>. Add a field and choose <strong>&ldquo;One-Time Password.&rdquo;</strong></span></li>
+        <li><span class="check"></span><span class="txt">Click the little <strong>QR-code scan icon</strong> in 1Password and scan the QR code on your screen. 1Password starts generating a <strong>6-digit code</strong>.</span></li>
+        <li><span class="check"></span><span class="txt">Copy that 6-digit code from 1Password, paste it into Google to confirm, and <strong>Save</strong>.</span></li>
+        <li><span class="check"></span><span class="txt">That&rsquo;s it &mdash; next time you sign in, 1Password fills the verification code for you automatically. ✅</span></li>
+      </ol>
+      <div class="media-ph">
+        <span class="big">📹</span>
+        A short screen recording of this step will go here.
+      </div>
+      <div class="callout tip"><span class="ico">💡</span><span><strong>Why this way?</strong> Keeping the code in 1Password means if you ever get a new phone, your sign-in still works &mdash; and you never have to dig out a separate app to find a code.</span></div>
+    </div>
+  </section>
+
+  <!-- HELP -->
+  <div class="help">
+    <h2>Stuck on anything? That&rsquo;s normal.</h2>
+    <p>None of this is a test, and you can&rsquo;t break anything. If a step doesn&rsquo;t look quite like what&rsquo;s described, or something just isn&rsquo;t working, reach out &mdash; we&rsquo;re happy to help.</p>
+    <p style="margin-top:12px;">Your go-to person while you&rsquo;re getting started:<br><span class="ph">[Name &mdash; Slack handle / email]</span></p>
+    <a class="contact" href="#">Message them on Slack once you&rsquo;re in 🎈</a>
+  </div>
+
+  <footer>
+    <p>Made with care for the MomsRising team. Your progress on this page is saved only on your own device.</p>
+    <button class="reset" id="resetBtn">Reset my progress</button>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  var KEY = "mr_onboarding_v1";
+  var checks = document.querySelectorAll("ol.tasks .check");
+  var total = checks.length;
+  var fill = document.getElementById("fill");
+  var pct = document.getElementById("pct");
+  var countEl = document.getElementById("count");
+  var doneBanner = document.getElementById("doneBanner");
+  var tickSVG = '<svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  // assign ids + tick markup
+  checks.forEach(function(c, i){
+    c.setAttribute("data-id", i);
+    c.innerHTML = tickSVG;
+  });
+
+  function load(){
+    try { return JSON.parse(localStorage.getItem(KEY)) || {}; }
+    catch(e){ return {}; }
+  }
+  function save(state){
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch(e){}
+  }
+
+  function render(){
+    var state = load();
+    var done = 0;
+    checks.forEach(function(c, i){
+      var on = !!state[i];
+      c.classList.toggle("checked", on);
+      var txt = c.parentNode.querySelector(".txt");
+      if(txt) txt.classList.toggle("struck", on);
+      if(on) done++;
+    });
+    // per-step dimming
+    document.querySelectorAll("ol.tasks").forEach(function(ol){
+      var its = ol.querySelectorAll(".check");
+      var all = Array.prototype.every.call(its, function(c){ return c.classList.contains("checked"); });
+      var sec = ol.closest(".step");
+      if(sec) sec.classList.toggle("done", all && its.length>0);
+    });
+    var p = total ? Math.round(done/total*100) : 0;
+    fill.style.width = p + "%";
+    pct.textContent = p + "% complete";
+    countEl.textContent = done + " / " + total;
+    doneBanner.classList.toggle("show", done===total && total>0);
+  }
+
+  checks.forEach(function(c){
+    c.addEventListener("click", function(){
+      var id = c.getAttribute("data-id");
+      var state = load();
+      if(state[id]) delete state[id]; else state[id] = true;
+      save(state);
+      render();
+    });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function(){
+    if(confirm("Clear all your checkmarks and start over?")){
+      save({});
+      render();
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
