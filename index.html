@@ -37,7 +37,7 @@
 
   /* ---------- Header ---------- */
   header{
-    background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);
+    background:var(--navy);
     color:#fff;
     padding:48px 20px 56px;
     text-align:center;
@@ -45,15 +45,12 @@
     overflow:hidden;
   }
   header .logo{
-    width:72px;height:72px;
-    background:#fff;
-    border-radius:50%;
+    width:80px;height:80px;
     display:flex;align-items:center;justify-content:center;
     margin:0 auto 20px;
-    box-shadow:0 6px 18px rgba(0,0,0,.18);
   }
-  header .logo svg{width:54px;height:54px;}
-  header .logo svg path{fill:var(--blue);}
+  header .logo svg{width:80px;height:80px;}
+  header .logo svg path{fill:#fff;}
   header .eyebrow{
     text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;
     font-weight:700;opacity:.85;margin:0 auto 8px; /* auto keeps it centered; without it the inherited max-width pins it left */
@@ -158,6 +155,26 @@
   }
   .media-ph .big{font-size:1.6rem;display:block;margin-bottom:6px;}
 
+  /* ---------- Top help card ---------- */
+  .help-top{
+    background:var(--sky);border-radius:var(--radius);
+    padding:22px 24px;margin-bottom:28px;border:1px solid #9cc4f7;
+  }
+  .help-top h2{margin:0 0 4px;font-size:1.15rem;color:var(--navy);display:flex;align-items:center;gap:9px;}
+  .help-top h2 .ico{font-size:1.3rem;}
+  .help-top p{margin:0 0 14px;color:#1c3050;}
+  .help-top .channels{display:flex;flex-wrap:wrap;gap:12px;}
+  .help-top a.channel{
+    display:flex;align-items:center;gap:10px;text-decoration:none;
+    background:#fff;border:1px solid #bcd6fb;border-radius:12px;
+    padding:11px 16px;color:var(--navy);font-weight:600;flex:1;min-width:200px;
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .help-top a.channel:hover{border-color:var(--blue);box-shadow:0 3px 10px rgba(0,88,255,.12);}
+  .help-top a.channel .badge{font-size:1.3rem;line-height:1;}
+  .help-top a.channel .label{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--gray);}
+  .help-top a.channel .val{display:block;font-size:1rem;color:var(--navy);}
+
   /* ---------- Help / footer ---------- */
   .help{
     background:var(--navy);color:#fff;border-radius:var(--radius);
@@ -223,6 +240,21 @@
 <main>
 
   <div class="done-banner" id="doneBanner">🎉 You did it! Everything&rsquo;s set up. Welcome aboard &mdash; we&rsquo;re so glad you&rsquo;re here.</div>
+
+  <div class="help-top">
+    <h2><span class="ico">👋</span> Need a hand? Reach out anytime.</h2>
+    <p>You don&rsquo;t have to figure this out alone. If anything is confusing or doesn&rsquo;t work the way it&rsquo;s described, message us &mdash; no question is too small.</p>
+    <div class="channels">
+      <a class="channel" href="https://app.slack.com/client" target="_blank" rel="noopener">
+        <span class="badge">💬</span>
+        <span><span class="label">Slack (fastest)</span><span class="val">#request-tech</span></span>
+      </a>
+      <a class="channel" href="mailto:techhelp@momsrising.org">
+        <span class="badge">✉️</span>
+        <span><span class="label">Email (no Slack yet?)</span><span class="val">techhelp@momsrising.org</span></span>
+      </a>
+    </div>
+  </div>
 
   <div class="intro-card">
     <h2>Before you begin</h2>
@@ -379,8 +411,8 @@
   <div class="help">
     <h2>Stuck on anything? That&rsquo;s normal.</h2>
     <p>None of this is a test, and you can&rsquo;t break anything. If a step doesn&rsquo;t look quite like what&rsquo;s described, or something just isn&rsquo;t working, reach out &mdash; we&rsquo;re happy to help.</p>
-    <p style="margin-top:12px;">Your go-to person while you&rsquo;re getting started:<br><span class="ph">[Name &mdash; Slack handle / email]</span></p>
-    <a class="contact" href="#">Message them on Slack once you&rsquo;re in 🎈</a>
+    <p style="margin-top:12px;">Post in <strong>#request-tech</strong> on Slack, or email <a href="mailto:techhelp@momsrising.org" style="color:#fff;"><strong>techhelp@momsrising.org</strong></a> if you&rsquo;re not in Slack yet.</p>
+    <a class="contact" href="mailto:techhelp@momsrising.org">Email techhelp@momsrising.org ✉️</a>
   </div>
 
   <footer>
