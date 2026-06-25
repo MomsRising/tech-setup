@@ -154,6 +154,15 @@
     padding:30px 18px;font-size:.95rem;
   }
   .media-ph .big{font-size:1.6rem;display:block;margin-bottom:6px;}
+  .media-vid{
+    margin:16px 0 0;border:1px solid #d4dbe8;border-radius:12px;
+    overflow:hidden;background:#000;
+  }
+  .media-vid video{display:block;width:100%;height:auto;}
+  .media-vid figcaption{
+    background:#f1f4fb;color:var(--gray);text-align:center;
+    padding:8px 14px;font-size:.85rem;
+  }
 
   /* ---------- Top help card ---------- */
   .help-top{
@@ -399,10 +408,13 @@
         <li><span class="check"></span><span class="txt">Copy that 6-digit code from 1Password, paste it into Google to confirm, and <strong>Save</strong>.</span></li>
         <li><span class="check"></span><span class="txt">That&rsquo;s it. Next time you sign in, 1Password fills the verification code for you automatically. ✅</span></li>
       </ol>
-      <div class="media-ph">
-        <span class="big">📹</span>
-        A short screen recording of this step will go here.
-      </div>
+      <figure class="media-vid">
+        <video controls preload="metadata" playsinline poster="">
+          <source src="media/google-authenticator.mp4" type="video/mp4">
+          Your browser can&rsquo;t play this video. <a href="media/google-authenticator.mp4">Download it here</a> instead.
+        </video>
+        <figcaption>📹 Screen recording: setting up the authenticator code in 1Password</figcaption>
+      </figure>
       <div class="callout tip"><span class="ico">💡</span><span><strong>Why this way?</strong> Keeping the code in 1Password means if you ever get a new phone, your sign-in still works, and you never have to dig out a separate app to find a code.</span></div>
     </div>
   </section>
